@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik} from 'formik';
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 import './component.css';
 import LoginBanner from "../data/login_banner.jpg"
 import { Link } from 'react-router-dom';
 
+import { LoginAction } from '../action/showAction';
+import { useDispatch } from 'react-redux';
+
+
 function Login() {
-    
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+   
 
     const formdata =useFormik({
         initialValues:{
@@ -22,19 +26,37 @@ function Login() {
             password:yup.string().required('Email is required').min(6,'enter minimum 6 char').required('password is required'),
 
         }),
+
+
+
+
         onSubmit:(userdata)=>{
         
             axios.post("http://localhost:5000/login",userdata).then(
-                (response)=>{
-
+                 (response)=>{
+                   if(response.data.token){
+                     dispatch(LoginAction(response.data));
                         localStorage.setItem('token', response.data.token);
+                      
+                        navigate('/home');}
                 }
             ).catch(err=>console.log(err))
           
-            navigate('/home')
+        
         }
         
     })
+
+
+
+
+
+    useEffect(()=>{
+        const jwtToken = localStorage.getItem('token');
+        if(jwtToken){
+            navigate('/home');
+        }
+    },[navigate])
 
    
 

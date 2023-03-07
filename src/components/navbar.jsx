@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import Logo from "../data/logo.png";
+import { useNavigate } from "react-router-dom";
 
-function Navbar() {
+function Navbar({viewMovies,viewCinemaHall}) {
+  const navigate =useNavigate()
+  const logout = ()=>{
+    localStorage.removeItem("token");
+    navigate("/")
+
+
+  }
     return (  <>
     
     <nav className="navbar navbar-expand-md navbar-transparent ">
     <div className="container-md ">
-      <Link className="navbar-brand" to="/#"><img src={Logo} alt="here logo" className='img-thumbnail bg-dark img-fluid w-50'  /></Link>
+      <a className="navbar-brand" href="/home" ><img src={Logo} alt="here logo" className='img-thumbnail bg-dark img-fluid w-50'  /></a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -15,17 +23,17 @@ function Navbar() {
     
   <ul className="navbar-nav  text-start text-nowrap ">
           <li className="nav-item">
-            <Link to='/#' className="nav-link">Movie</Link>
+          <a className="nav-link" href="/home#Movies" onClick={viewMovies} >Movie</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#About">Cinema Hall</a>
+            <a className="nav-link" href="/home#Cinemahall" onClick={viewCinemaHall} >Cinema Hall</a>
           </li>
         
           <li className="nav-item">
-            <a className="nav-link" href="#Contact">Contact</a>
+            <a className="nav-link" href="/home">Contact</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#Contact">Order</a>
+            <a className="nav-link" href="/home">Order</a>
           </li>
               
         </ul>
@@ -38,7 +46,7 @@ function Navbar() {
 
       
         <form className="d-flex mt-1 ms-auto text-nowrap">
-        <button className="btn btn-outline-primary fw-bold"  type="button">User<i className="fa-solid fa-user-check ms-2"></i>
+        <button className="btn btn-outline-primary fw-bold" onClick={logout} type="button">log out<i className="fa-solid fa-user-check ms-2"/>
           </button> 
         </form>
        

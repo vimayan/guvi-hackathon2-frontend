@@ -1,14 +1,98 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import './component.css';
 import Contact from './contact';
-import MovieList from './movies';
+import MovieList from './movieList';
 import Navbar from './navbar';
+import CinemaHall from './cinemaHall';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { GetMovies,GetCinemaHall,SelectedShow,SelectedScreen,SeatSelected,IsSeatHolded,IsSeatBooked } from '../action/showAction';
 
 
 function Home() {
+  const navigate = useNavigate()
+  const jwtToken = localStorage.getItem('token')
+  // const [movies,setMovies] = useState([])
+  // const [cinemaHall,setCinemaHall] = useState([1])
+
+ 
+
+  const dispatch = useDispatch();
+
+
+useEffect(()=>{
+  dispatch(SelectedShow({}));
+  dispatch(SelectedScreen({}));
+  dispatch(SeatSelected());
+  dispatch(IsSeatHolded([]));
+  dispatch(IsSeatBooked([]))
+},[])
+
+  useEffect(()=> {
+   
+  
+    if(!jwtToken){
+      navigate('/')
+    }
+  },[navigate,jwtToken])
+
+
+  useEffect(()=> {
+
+axios.get("http://localhost:5000/home/showmovies/admin",
+{headers: {
+  'token': jwtToken
+}}
+).then((response)=>{
+
+dispatch(GetMovies(response.data));
+// setMovies([...response.data])
+}
+
+     
+)
+  .catch((err)=>console.log(err)) 
+    
+
+ },[dispatch,jwtToken])
+
+
+ useEffect(()=> {
+
+  axios.get("http://localhost:5000/home/showcinemahall/admin",
+  {headers: {
+    'token': jwtToken
+  }}
+  ).then((response)=>{
+ 
+    dispatch(GetCinemaHall(response.data));
+  // setCinemaHall([...response.data]);
+}
+  
+       ).catch((err)=>console.log(err))
+    
+      
+  
+   },[dispatch,jwtToken])
+  
+
+
+
+
+  const [view, setView] = useState(true);
+
+  const viewMovies=()=>{
+    setView(true)
+  }
+
+  const viewCinemaHall=()=>{
+    setView(false)
+  }
+
     return ( <div className='home'>
 
-    <Navbar></Navbar>
+    <Navbar viewMovies={viewMovies} viewCinemaHall={viewCinemaHall} ></Navbar>
 
     
 <div id="carouselExampleDark" className="carousel carousel-dark slide mt-4 px-5 shadow-md " data-bs-ride="carousel">
@@ -18,10 +102,10 @@ function Home() {
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div className="carousel-inner">
-    <div className="carousel-item active" data-bs-interval="1000"> 
+    <div className="carousel-item " > 
       <img className="d-block  imagecarousel rounded rounded-2   " src="https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="First slide"/>
     </div>
-    <div className="carousel-item">
+    <div className="carousel-item active" data-bs-interval="500" >
       <img className="d-block imagecarousel rounded rounded-2 " src="https://images.pexels.com/photos/3692639/pexels-photo-3692639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Second slide"/>
     </div>
     <div className="carousel-item">
@@ -37,8 +121,11 @@ function Home() {
     <span className="visually-hidden ">Next</span>
   </button>
 </div>
+{view? <MovieList   />:<CinemaHall  />}
 
-<MovieList/>
+
+
+
 <Contact/>
 
 </div>);

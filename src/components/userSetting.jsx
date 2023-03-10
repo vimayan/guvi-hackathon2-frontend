@@ -28,7 +28,7 @@ function UserSetting() {
 
 
     useEffect(()=>{
-        axios.get("http://localhost:5000/showalluser/admin",
+        axios.get("/showalluser/admin",
         {headers: {
           'token': jwtToken
         }}
@@ -37,7 +37,7 @@ function UserSetting() {
       }
         
              ).catch((err)=>console.log(err))
-    },[dispatch,jwtToken])
+    },[])
 
 
 
@@ -62,7 +62,7 @@ function UserSetting() {
        const removeUser = (user)=>{
 
         
-        axios.delete(`http://localhost:5000/deleteuser/admin/${user._id}`,{headers: {
+        axios.delete(`/deleteuser/admin/${user._id}`,{headers: {
             'token': jwtToken
           }}).then((response)=>{
       
@@ -77,7 +77,7 @@ function UserSetting() {
 
         e.preventDefault();
 
-        axios.put("http://localhost:5000/updateuser/admin",users,{headers: {
+        axios.put("/updateuser/admin",users,{headers: {
             'token': jwtToken
           }}).then((response)=>{
        

@@ -27,7 +27,7 @@ useEffect(()=>{
   dispatch(SeatSelected());
   dispatch(IsSeatHolded([]));
   dispatch(IsSeatBooked([]))
-},[dispatch])
+},[])
 
   useEffect(()=> {
    
@@ -40,7 +40,7 @@ useEffect(()=>{
 
   useEffect(()=> {
 
-axios.get(`http://localhost:5000/home/showmovies/${user}`,
+axios.get(`/home/showmovies/${user}`,
 {headers: {
   'token': jwtToken
 }}
@@ -55,12 +55,12 @@ dispatch(GetMovies(response.data));
   .catch((err)=>console.log(err)) 
     
 
- },[dispatch,jwtToken,user])
+ },[dispatch,jwtToken])
 
 
  useEffect(()=> {
 
-  axios.get(`http://localhost:5000/home/showcinemahall/${user}`,
+  axios.get(`/home/showcinemahall/${user}`,
   {headers: {
     'token': jwtToken
   }}
@@ -74,7 +74,7 @@ dispatch(GetMovies(response.data));
     
       
   
-   },[dispatch,jwtToken,user])
+   },[dispatch,jwtToken])
   
 
 

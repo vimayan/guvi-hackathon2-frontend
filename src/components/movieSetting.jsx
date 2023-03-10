@@ -47,7 +47,7 @@ function MovieSetting() {
 
     useEffect(()=> {
 
-        axios.get("http://localhost:5000/showallmovies/admin",
+        axios.get("/showallmovies/admin",
          {headers: {
           'token': jwtToken
         }}
@@ -62,7 +62,7 @@ function MovieSetting() {
           .catch((err)=>console.log(err)) 
             
         
-         },[dispatch,jwtToken])
+         },[])
 
 
 
@@ -223,7 +223,7 @@ function MovieSetting() {
         const removeMovie = (movieList)=>{
 
 
-            axios.delete(`http://localhost:5000/deletemovie/admin/${movieList._id}`,{headers: {
+            axios.delete(`/deletemovie/admin/${movieList._id}`,{headers: {
                 'token': jwtToken
               }}).then((response)=>{
              console.log(response.data);  
@@ -242,7 +242,7 @@ function MovieSetting() {
             e.preventDefault();
             console.log(JSON.stringify(movie));
     
-            axios.post("http://localhost:5000/addmovie/admin",movie,{headers: {
+            axios.post("/addmovie/admin",movie,{headers: {
                 'token': jwtToken
               }}).then((response)=>{
              console.log(response);  
@@ -260,7 +260,7 @@ function MovieSetting() {
 
             console.log(movie._id);
 
-            axios.put("http://localhost:5000/updatemovies/admin",movie,{headers: {
+            axios.put("/updatemovies/admin",movie,{headers: {
                 'token': jwtToken
               }}).then((response)=>{
              console.log(response);  

@@ -31,12 +31,9 @@ const navigate = useNavigate();
         }),
         onSubmit:(userdata)=>{
             
-            axios.post("http://localhost:5000/register",userdata).then(
+            axios.post("/register",userdata).then(
                 (response)=>{
-                        console.log(response);
-                    
-                       
-                      
+                        alert(response.data)                    
                 }
             ).catch(err=>console.log(err))
 

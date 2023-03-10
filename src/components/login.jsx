@@ -32,16 +32,18 @@ function Login() {
 
         onSubmit:(userdata)=>{
         
-            axios.post("http://localhost:5000/login",userdata).then(
+            axios.post("/login",userdata).then(
                  (response)=>{
+                  
                    if(response.data.token){
                      dispatch(LoginAction(response.data));
                         localStorage.setItem('token', response.data.token);
                         localStorage.setItem('admin',response.data.admin)
                       
                         navigate('/home');}
+                        else{alert(response.data)}
                 }
-            ).catch(err=>console.log(err))
+            ).catch(err=>{console.log(err);})
           
         
         }

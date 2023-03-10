@@ -30,7 +30,7 @@ function CinemaHallSetting() {
 
          useEffect(()=> {
 
-            axios.get("http://localhost:5000/home/showcinemahall/admin",
+            axios.get("/home/showcinemahall/admin",
             {headers: {
               'token': jwtToken
             }}
@@ -60,7 +60,7 @@ function CinemaHallSetting() {
     }
     const removeScreen = (screen)=>{
 
-        axios.delete(`http://localhost:5000/deletecinemahall/admin/${screen._id}`,{headers: {
+        axios.delete(`/deletecinemahall/admin/${screen._id}`,{headers: {
             'token': jwtToken
           }}).then((response)=>{
          console.log(response);  
@@ -77,7 +77,7 @@ function CinemaHallSetting() {
         e.preventDefault();
      
 
-        axios.post("http://localhost:5000/addcinemahall/admin",screens,{headers: {
+        axios.post("/addcinemahall/admin",screens,{headers: {
             'token': jwtToken
           }}).then((response)=>{
         
@@ -122,7 +122,7 @@ const updatechange = ()=>{
 
 
 
-axios.put("http://localhost:5000/updatecinemahall/admin",screens,{headers: {
+axios.put("/updatecinemahall/admin",screens,{headers: {
     'token': jwtToken
   }}).then((response)=>{
  

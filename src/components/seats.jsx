@@ -48,9 +48,9 @@ function Seats() {
        
      
        
-    },[dispatch,selectedScreen.screen.seatHolded,selectedScreen.screen.seatBooked])
+    },[])
     useEffect(()=>{
-        socket = Io('http://localhost:5000');
+        socket = Io('/');
         socket.emit('join',{cinemaHall:selectedScreen.name},(reply)=>{console.log(reply);})
         
 
@@ -60,7 +60,7 @@ function Seats() {
       useEffect(()=>{
         socket.on('seatholded',(seats)=>{
          dispatch(IsSeatHolded(seats))
-          console.log(seats);
+          
         })
       },[dispatch])
 

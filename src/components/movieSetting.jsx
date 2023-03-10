@@ -62,7 +62,7 @@ function MovieSetting() {
           .catch((err)=>console.log(err)) 
             
         
-         },[])
+         },[dispatch,jwtToken])
 
 
 

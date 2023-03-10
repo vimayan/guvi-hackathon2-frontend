@@ -6,14 +6,21 @@ import {SelectedScreen} from '../action/showAction'
 
 
 
+
 function CinemaHall() {
+
+
     const bookmyshow = useSelector(state => state.bookmyshow)
-    const {cinemaHall} =bookmyshow
-    // console.log("this is cinema Hall",JSON.stringify(cinemaHall[0]));
+    const {cinemaHall,selectedShow} =bookmyshow
+    
     const dispatch = useDispatch()
     const navigate =useNavigate()
 
     const [screens,setScreen] =useState([]);
+
+  
+
+
     useEffect(()=>{
        
         setScreen(cinemaHall)
@@ -22,8 +29,10 @@ function CinemaHall() {
 
     const handleSubmit =(screen) =>{
 
-        dispatch(SelectedScreen(screen))
-        if(screen) navigate("/booking");
+    dispatch(SelectedScreen(screen))
+    if(screen) navigate("/booking");
+
+
     }
 
     
@@ -36,7 +45,6 @@ function CinemaHall() {
     screens.map((screen,index) =>
   
     <div className='row mt-4 ' key={index}>
-        {/* {console.log(JSON.stringify(screen))} */}
         
         <div className='col-7 d-flex flex-nowrap mx-auto'>
         <div className='col-2 d-none d-md-inline'>
@@ -50,11 +58,13 @@ function CinemaHall() {
                {screen.address[0].place}
                 </span>
             </div>
+            {selectedShow.name?
             <div className='col-3 ms-1'>
                 <button className='btn btn-secondary' onClick={()=>{handleSubmit(screen)}}>
                     book
                 </button>
             </div>
+            :<></>}
         </div>
           
         </div>

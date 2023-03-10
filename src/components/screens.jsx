@@ -21,6 +21,8 @@ function Screens() {
         if(!data){
           navigate('/')
         }
+
+     
       
       },[navigate])
 

@@ -37,6 +37,7 @@ function Login() {
                    if(response.data.token){
                      dispatch(LoginAction(response.data));
                         localStorage.setItem('token', response.data.token);
+                        localStorage.setItem('admin',response.data.admin)
                       
                         navigate('/home');}
                 }

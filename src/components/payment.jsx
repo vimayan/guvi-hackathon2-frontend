@@ -8,6 +8,8 @@ function Payment() {
 
     const bookmyshow = useSelector((states)=>states.bookmyshow);
     const jwtToken = localStorage.getItem('token')
+    
+    const user = localStorage.getItem('admin')==="admin"?"admin":"user"
     console.log(jwtToken);
       
     const {selectedShow,selectedScreen,userSelected} =bookmyshow;
@@ -21,19 +23,26 @@ function Payment() {
     }
     const handlePayment=()=>{
 
-        axios.post("http://localhost:5000/payment/admin",{"id":selectedScreen._id,"userSelected":userSelected},
+        axios.post(`http://localhost:5000/payment/${user}`,{"id":selectedScreen._id,"userSelected":userSelected},
         {headers: {
           'token': jwtToken
         }},
         ).then((response)=>{
             console.log(response);
-        })
+            alert("Booked");
+            setTimeout(()=>{
+                navigate("/home");
+            },1000);
 
-        alert("Booked")
-
+        }).catch(err=>{alert("error in booking");
         setTimeout(()=>{
             navigate("/home");
-        },1000)
+        },1000);
+    })
+
+      
+
+       
     }
 
 

@@ -21,3 +21,28 @@
     object-position: 5px 30%;
 }
 
+.fa-gear{
+    animation: mymove 5s infinite linear ;
+    
+}
+.fa-gear:hover{
+
+    scale: 1.5;
+    color:darkorange
+    
+}
+
+.gear:hover > .fa-gear{
+    scale: 1.5;
+    color:darkorange
+    
+}
+
+
+
+
+@keyframes mymove {
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+
+}

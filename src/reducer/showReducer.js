@@ -4,6 +4,8 @@ const initialState = {
     userDetails:{},
 movies:[],
 cinemaHall:[],
+userList:[],
+
 selectedShow:{},
 selectedScreen:{},
 
@@ -16,6 +18,8 @@ userSelected:[],
 // otherwise it shows undifined on initial render
 const ShowReducers = (states=initialState,action)=>{
 switch(action.type){
+    case 'getuserlist':
+         return {...states,userList:action.payload}
     case 'adduserdetails':
         return {...states,userDetails:action.payload};  
 

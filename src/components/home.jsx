@@ -13,10 +13,10 @@ import { GetMovies,GetCinemaHall,SelectedShow,SelectedScreen,SeatSelected,IsSeat
 function Home() {
   const navigate = useNavigate()
   const jwtToken = localStorage.getItem('token')
-  // const [movies,setMovies] = useState([])
-  // const [cinemaHall,setCinemaHall] = useState([1])
+  const admin = localStorage.getItem('admin')
 
- 
+  const user = admin==="true"?"admin":"user"
+
 
   const dispatch = useDispatch();
 
@@ -40,14 +40,14 @@ useEffect(()=>{
 
   useEffect(()=> {
 
-axios.get("http://localhost:5000/home/showmovies/admin",
+axios.get(`http://localhost:5000/home/showmovies/${user}`,
 {headers: {
   'token': jwtToken
 }}
 ).then((response)=>{
 
 dispatch(GetMovies(response.data));
-// setMovies([...response.data])
+
 }
 
      
@@ -60,7 +60,7 @@ dispatch(GetMovies(response.data));
 
  useEffect(()=> {
 
-  axios.get("http://localhost:5000/home/showcinemahall/admin",
+  axios.get(`http://localhost:5000/home/showcinemahall/${user}`,
   {headers: {
     'token': jwtToken
   }}

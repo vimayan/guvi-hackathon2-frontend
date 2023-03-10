@@ -127,4 +127,15 @@ export const IsSeatHolded=(seatholded)=>(dispatch,getState)=>{
            
             
             } 
+
+
+        
+     export const GetUsers = (userlist) =>(dispatch,getstate)=>{
+
+        dispatch({
+            type:'getuserlist',
+            payload: [...userlist]
+        })
+
+     }       
     

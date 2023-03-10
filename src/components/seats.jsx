@@ -48,7 +48,7 @@ function Seats() {
        
      
        
-    },[dispatch])
+    },[dispatch,selectedScreen.screen.seatHolded,selectedScreen.screen.seatBooked])
     useEffect(()=>{
         socket = Io('http://localhost:5000');
         socket.emit('join',{cinemaHall:selectedScreen.name},(reply)=>{console.log(reply);})

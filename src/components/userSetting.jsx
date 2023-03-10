@@ -37,7 +37,7 @@ function UserSetting() {
       }
         
              ).catch((err)=>console.log(err))
-    },[])
+    },[dispatch,jwtToken])
 
 
 

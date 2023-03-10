@@ -27,7 +27,7 @@ useEffect(()=>{
   dispatch(SeatSelected());
   dispatch(IsSeatHolded([]));
   dispatch(IsSeatBooked([]))
-},[])
+},[dispatch])
 
   useEffect(()=> {
    
@@ -55,7 +55,7 @@ dispatch(GetMovies(response.data));
   .catch((err)=>console.log(err)) 
     
 
- },[dispatch,jwtToken])
+ },[dispatch,jwtToken,user])
 
 
  useEffect(()=> {
@@ -74,7 +74,7 @@ dispatch(GetMovies(response.data));
     
       
   
-   },[dispatch,jwtToken])
+   },[dispatch,jwtToken,user])
   
 
 

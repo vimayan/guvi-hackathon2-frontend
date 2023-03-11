@@ -31,7 +31,7 @@ const navigate = useNavigate();
         }),
         onSubmit:(userdata)=>{
             
-            axios.post("/register",userdata).then(
+            axios.post("https://guvi-hackathon2-backend-vva7.onrender.com/register",userdata).then(
                 (response)=>{
                         alert(response.data)                    
                 }

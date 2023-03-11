@@ -23,7 +23,7 @@ function Payment() {
     }
     const handlePayment=()=>{
 
-        axios.post(`/payment/${user}`,{"id":selectedScreen._id,"userSelected":userSelected},
+        axios.post(`https://guvi-hackathon2-backend-vva7.onrender.com/payment/${user}`,{"id":selectedScreen._id,"userSelected":userSelected},
         {headers: {
           'token': jwtToken
         }},

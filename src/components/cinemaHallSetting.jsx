@@ -30,7 +30,7 @@ function CinemaHallSetting() {
 
          useEffect(()=> {
 
-            axios.get("/home/showcinemahall/admin",
+            axios.get("https://guvi-hackathon2-backend-vva7.onrender.com/home/showcinemahall/admin",
             {headers: {
               'token': jwtToken
             }}
@@ -60,7 +60,7 @@ function CinemaHallSetting() {
     }
     const removeScreen = (screen)=>{
 
-        axios.delete(`/deletecinemahall/admin/${screen._id}`,{headers: {
+        axios.delete(`https://guvi-hackathon2-backend-vva7.onrender.com/deletecinemahall/admin/${screen._id}`,{headers: {
             'token': jwtToken
           }}).then((response)=>{
          console.log(response);  
@@ -77,7 +77,7 @@ function CinemaHallSetting() {
         e.preventDefault();
      
 
-        axios.post("/addcinemahall/admin",screens,{headers: {
+        axios.post("https://guvi-hackathon2-backend-vva7.onrender.com/addcinemahall/admin",screens,{headers: {
             'token': jwtToken
           }}).then((response)=>{
         
@@ -122,7 +122,7 @@ const updatechange = ()=>{
 
 
 
-axios.put("/updatecinemahall/admin",screens,{headers: {
+axios.put("https://guvi-hackathon2-backend-vva7.onrender.com/updatecinemahall/admin",screens,{headers: {
     'token': jwtToken
   }}).then((response)=>{
  

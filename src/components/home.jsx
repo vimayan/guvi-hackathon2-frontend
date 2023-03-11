@@ -40,7 +40,7 @@ useEffect(()=>{
 
   useEffect(()=> {
 
-axios.get(`/home/showmovies/${user}`,
+axios.get(`https://guvi-hackathon2-backend-vva7.onrender.com/home/showmovies/${user}`,
 {headers: {
   'token': jwtToken
 }}
@@ -60,7 +60,7 @@ dispatch(GetMovies(response.data));
 
  useEffect(()=> {
 
-  axios.get(`/home/showcinemahall/${user}`,
+  axios.get(`https://guvi-hackathon2-backend-vva7.onrender.com/home/showcinemahall/${user}`,
   {headers: {
     'token': jwtToken
   }}

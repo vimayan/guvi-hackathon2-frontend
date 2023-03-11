@@ -47,7 +47,7 @@ function MovieSetting() {
 
     useEffect(()=> {
 
-        axios.get("/showallmovies/admin",
+        axios.get("https://guvi-hackathon2-backend-vva7.onrender.com/showallmovies/admin",
          {headers: {
           'token': jwtToken
         }}
@@ -223,7 +223,7 @@ function MovieSetting() {
         const removeMovie = (movieList)=>{
 
 
-            axios.delete(`/deletemovie/admin/${movieList._id}`,{headers: {
+            axios.delete(`https://guvi-hackathon2-backend-vva7.onrender.com/deletemovie/admin/${movieList._id}`,{headers: {
                 'token': jwtToken
               }}).then((response)=>{
              console.log(response.data);  
@@ -242,7 +242,7 @@ function MovieSetting() {
             e.preventDefault();
             console.log(JSON.stringify(movie));
     
-            axios.post("/addmovie/admin",movie,{headers: {
+            axios.post("https://guvi-hackathon2-backend-vva7.onrender.com/addmovie/admin",movie,{headers: {
                 'token': jwtToken
               }}).then((response)=>{
              console.log(response);  
@@ -260,7 +260,7 @@ function MovieSetting() {
 
             console.log(movie._id);
 
-            axios.put("/updatemovies/admin",movie,{headers: {
+            axios.put("https://guvi-hackathon2-backend-vva7.onrender.com/updatemovies/admin",movie,{headers: {
                 'token': jwtToken
               }}).then((response)=>{
              console.log(response);  

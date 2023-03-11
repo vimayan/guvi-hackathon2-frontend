@@ -28,7 +28,7 @@ function UserSetting() {
 
 
     useEffect(()=>{
-        axios.get("/showalluser/admin",
+        axios.get("https://guvi-hackathon2-backend-vva7.onrender.com/showalluser/admin",
         {headers: {
           'token': jwtToken
         }}
@@ -62,7 +62,7 @@ function UserSetting() {
        const removeUser = (user)=>{
 
         
-        axios.delete(`/deleteuser/admin/${user._id}`,{headers: {
+        axios.delete(`https://guvi-hackathon2-backend-vva7.onrender.com/deleteuser/admin/${user._id}`,{headers: {
             'token': jwtToken
           }}).then((response)=>{
       
@@ -77,7 +77,7 @@ function UserSetting() {
 
         e.preventDefault();
 
-        axios.put("/updateuser/admin",users,{headers: {
+        axios.put("https://guvi-hackathon2-backend-vva7.onrender.com/updateuser/admin",users,{headers: {
             'token': jwtToken
           }}).then((response)=>{
        

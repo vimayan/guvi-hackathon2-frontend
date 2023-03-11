@@ -32,7 +32,7 @@ function Login() {
 
         onSubmit:(userdata)=>{
         
-            axios.post("https://guvi-hackathon2-backend-vva7.onrender.com/login",userdata).then(
+            axios.post("/login",userdata).then(
                  (response)=>{
                   
                    if(response.data.token){

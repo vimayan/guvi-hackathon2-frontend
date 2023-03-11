@@ -50,7 +50,7 @@ function Seats() {
        
     },[dispatch,selectedScreen.screen.seatBooked,selectedScreen.screen.seatHolded])
     useEffect(()=>{
-        socket = Io('/');
+        socket = Io('https://guvi-hackathon2-backend-vva7.onrender.com');
         socket.emit('join',{cinemaHall:selectedScreen.name},(reply)=>{console.log(reply);})
         
 

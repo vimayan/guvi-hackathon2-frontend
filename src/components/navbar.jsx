@@ -30,7 +30,7 @@ const adminAccess = () =>{
     
     <nav className="navbar navbar-expand-lg navbar-transparent ">
     <div className="container-md ">
-      <a className="navbar-brand" href="/home" ><img src={Logo} alt="here logo" className='img-thumbnail bg-dark img-fluid w-50'  /></a>
+      <a className="navbar-brand" href="/home#Movies" ><img src={Logo} alt="here logo" className='img-thumbnail bg-dark img-fluid w-50'  /></a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span className="navbar-toggler-icon"></span>
       </button>

@@ -3,14 +3,16 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size:cover
+    background-size:cover;
+    height:100vh
 }
 .register_page{
     background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size:cover
+    background-size:cover;
+    height:100vh;
 }
 
 

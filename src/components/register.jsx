@@ -49,11 +49,11 @@ const navigate = useNavigate();
 
 
     return (  <>
-     <div className="container-fluid bg-primary register_page p-5" >
+     <div className="container-fluid bg-primary register_page" >
 
-<div className="row justify-content-center fw-light p-5">
+<div className="row justify-content-center fw-light h-100">
 
-    <div className="col-xl-6 col-lg-8 col-md-9  m-5 ">
+    <div className="col-xl-6 col-lg-7 col-md-8 col-12 my-auto mx-auto">
 
         <div className="card  border-0 shadow-lg ">
             <div className="card-body p-0">

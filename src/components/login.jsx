@@ -64,11 +64,11 @@ function Login() {
    
 
     return (  <>
-     <div className="container-fluid bg-primary login_page p-5 " >
+     <div className="container-fluid bg-primary login_page" >
 
-<div className="row justify-content-center p-5 fw-light  ">
+<div className="row  fw-light h-100  ">
 
-    <div className="col-xl-6 col-lg-8 col-md-9 py-2 m-5 ms-auto ">
+    <div className="col-xl-6 col-lg-7 col-md-8 col-sm-9 col-12 ms-auto my-auto ">
 
         <div className="card  border-0 shadow-lg ">
             <div className="card-body p-0">

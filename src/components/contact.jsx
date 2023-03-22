@@ -6,8 +6,8 @@ function Contact() {
     return ( <>
 
 
-        <div className="container-fluid mt-5  px-5 text-white" style={{background:"#3b3b3b"}}>
-            <div className="row mx-5 py-4 px-5 ">
+        <div className="container-fluid mt-5  px-sm-5 text-white" style={{background:"#3b3b3b"}}>
+            <div className="row mx-sm-5 py-4 px-sm-5 ">
                             <div className="col-md-12 mb-4">
                             <a href="#void" > <img src={Logo} alt="#"/></a>
                             </div>
@@ -32,7 +32,7 @@ function Contact() {
                                                 <h2>Social Link</h2>
                                                 <ul className="list-unstyled fs-5">
                                                     <li > <a className='text-decoration-none text-white' href="#void"><i className="fa-brands fa-twitter me-2"></i>Twitter</a> </li>
-                                                    <li><a   className='text-decoration-none text-white' href="#void"> #void<i className="fa-brands fa-facebook me-2"></i>Facebook</a> </li>
+                                                    <li><a   className='text-decoration-none text-white' href="#void"> <i className="fa-brands fa-facebook me-2"></i>Facebook</a> </li>
                                                     <li><a  className='text-decoration-none text-white'  href="#void"><i className="fa-brands fa-instagram me-2"></i>Instagram</a> </li>
                                                     <li><a  className='text-decoration-none text-white' href="#void"><i className="fa-brands fa-linkedin me-2"></i>Linkdin</a> </li>
                                                 </ul>
@@ -40,16 +40,7 @@ function Contact() {
                                             </div>
                                             
 
-                                            <div className="col-lg-4 col-md-6 col-sm-6 ">
-                                              
-                                                <h2>Newsletter</h2>
-                                                <div className="input-group mb-3">
-
-                                                                                                
-                                                    <input type="text" className="form-control" placeholder="Recipient's username" aria-label="enter mail" aria-describedby="button-addon2"/>
-                                                    <button className="btn btn-success" type="button" id="button-addon2">Subcribe</button>
-                                                    </div>
-                                                </div>
+                                       
                                            
                                         </div>
                                 </div>

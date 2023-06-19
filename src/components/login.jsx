@@ -162,6 +162,10 @@ function Login() {
                         Create an Account!
                       </Link>
                     </div>
+                    <div className="d-flex flex-column text-start">
+                      <span>username: admin@admin.com</span>
+                      <span>password: adminadmin</span>
+                    </div>
                   </div>
                 </div>
               </div>

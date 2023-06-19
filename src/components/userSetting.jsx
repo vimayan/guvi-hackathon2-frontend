@@ -157,7 +157,7 @@ function UserSetting() {
 
                   <div className="col">
                     <label htmlFor="age" className="label-control">
-                      Launguage{" "}
+                      Age{" "}
                     </label>
                     <br />
                     <input
